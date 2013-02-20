@@ -6,10 +6,13 @@ gem 'sqlite3'
 gem 'faker'
 gem 'database_cleaner'
 gem 'activerecord'
+gem 'nokogiri'
 
 group :test do
   gem 'rspec', '2.10.0'
   gem 'factory_girl'
+  gem 'webmock'
+  gem 'vcr'
   gem 'growl'
   gem 'guard-rspec'
   gem 'pry'

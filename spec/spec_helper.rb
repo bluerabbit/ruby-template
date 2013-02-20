@@ -1,4 +1,6 @@
 require 'pry'
+require 'vcr'
+require 'webmock'
 require 'faker'
 require 'factory_girl'
 require 'database_cleaner'
@@ -8,6 +10,11 @@ require "#{APP_ROOT}/db/database"
 Dir[("#{APP_ROOT}/lib/**/*.rb")].each {|f| require f}
 Dir[("#{APP_ROOT}/spec/factories/**/*.rb")].each {|f| require f}
 Dir[("#{APP_ROOT}/spec/support/*.rb")].each {|f| require f}
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr'
+  c.hook_into :webmock
+end
 
 RSpec.configure do |config|
 
